@@ -9,7 +9,6 @@
 namespace Escuccim\Sitemap\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Blog;
 use Escuccim\Sitemap\Models\Page;
 use Escuccim\Sitemap\Models\Subdomain;
 use Escuccim\Sitemap\Models\SiteMapImage;
