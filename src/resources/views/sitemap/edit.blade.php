@@ -10,7 +10,7 @@
 			<div class="panel-body">
 				@include('escuccim::errors.list')
 				
-				{!! Form::model($page, ['method' => 'patch', 'class' => 'form-horizontal', 'action' => ['SiteMapController@update', $page->id]]) !!}
+				{!! Form::model($page, ['method' => 'patch', 'class' => 'form-horizontal', 'action' => ['\Escuccim\Sitemap\Http\Controllers\MapController@update', $page->id]]) !!}
 					@include('escuccim::sitemap.pageForm', ['submitButtonText' => 'Update Page'])
 				{!! Form::close() !!}
 			</div>

@@ -35,6 +35,6 @@ class Page extends Model
 	}
 
 	public function images(){
-        return $this->hasMany('App\SiteMapImage');
+        return $this->hasMany('\Escuccim\Sitemap\Models\SiteMapImage');
     }
 }
