@@ -28,6 +28,12 @@ Via Composer - THIS IS NOT ON PACKAGIST YET!!!
 $ composer require escuccim/Sitemap
 ```
 
+# Add to app.php config file.
+
+# Run the migrations
+
+# Is that it?
+
 ## Usage
 
 This package contains its own routes, controllers, models and views and migrations so should work out of the box. The admin will be located at /sitemapadmin and the sitemap for static pages as controlled by the admin will be at /sitemap/pages. I personally have a sitemap index at /sitemap which points to other sitemaps which I create by extending the MapController provided by this package with custom views and routes.
