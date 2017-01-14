@@ -23,7 +23,7 @@ if ( ! function_exists('isUserAdmin')) {
         if(Auth::guest())
             return false;
         else {
-            return (Auth::user()->isAdmin());
+            return (Auth::user()->type);
         }
     }
 }
