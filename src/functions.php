@@ -11,7 +11,6 @@ if ( ! function_exists('app_domain')) {
      */
     function app_domain(){
         $domain = env('APP_URL');
-        $domain = str_replace('http://', '', $domain);
 
         if(isset($_SERVER['SERVER_NAME'])){
             $pieces = explode('.', $_SERVER['SERVER_NAME']);
