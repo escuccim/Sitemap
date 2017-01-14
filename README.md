@@ -3,8 +3,6 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 
@@ -27,14 +25,26 @@ Via Composer - THIS IS NOT ON PACKAGIST YET!!!
 ``` bash
 $ composer require escuccim/Sitemap
 ```
+Register the class in config/app.php:
+```
+Escuccim\Sitemap\sitemapServiceProvider::class,
+```
 
-# Add to app.php config file.
+Run the migrations:
+``` bash
+php artisan migrate
+```
 
-# Run the migrations
+This package uses a middleware to determine if the user is authorized to access the sitemap admin. This extends the Laravel Auth package and adds a field to the users table called 'type' which is 1 if the user is an admin, and 0 otherwise. You need to add the middleware to app\Http\Kernel.php:
+```
+'admin' => \Escuccim\LaraBlog\Middleware\AdminMiddleware::class,
+```
 
-# Register middleware?
-
-# Publish the vendor files if you want
+If you wish you can publish the views and config file to your app using:
+```
+php artisan vendor:publish
+```
+If you wish to modify any of the views or change the config you should do this. The config will be published to: /config/sitemap.php and currently only has one value which determines if you are using subdomains for localization and if so will add hreflang tags to the sitemap.
 
 # Is that it?
 
