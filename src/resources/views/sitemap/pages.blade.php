@@ -23,7 +23,7 @@
 						hreflang="x-default"
 						href="http://{{ \Escuccim\Sitemap\Models\Subdomain::getDefault()->subdomain ? \Escuccim\Sitemap\Models\Subdomain::getDefault()->subdomain . '.' : '' }}{{ app_domain() }}{{ $page->uri }}" />
 				@endif
-				
+
 				@foreach($page->images as $image)
 					<image:image>
 						<image:loc>{{ app_url() }}{{$image->uri}}</image:loc>
