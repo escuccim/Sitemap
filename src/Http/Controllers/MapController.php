@@ -129,9 +129,9 @@ class MapController extends Controller
 
     public function storeSubdomain(Request $request){
         // validate the form
-        $this->validate($request, [
-            'language' => 'required',
-        ]);
+//        $this->validate($request, [
+//            'language' => 'required',
+//        ]);
 
         // store the subdomain
         Subdomain::create($request->all());
