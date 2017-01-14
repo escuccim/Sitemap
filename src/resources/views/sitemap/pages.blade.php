@@ -17,10 +17,13 @@
 						hreflang="{{ $subdomain->language }}"
 						href="http://{{ $subdomain->subdomain ? $subdomain->subdomain . '.' : '' }}{{ app_domain() }}{{ $page->uri }}" />
 				@endforeach
-				<xhtml:link rel="alternate"
-					hreflang="x-default"
-					href="http://{{ \Escuccim\Sitemap\Models\Subdomain::getDefault()->subdomain ? \Escuccim\Sitemap\Models\Subdomain::getDefault()->subdomain . '.' : '' }}{{ app_domain() }}{{ $page->uri }}" />
 
+				@if(count(\Escuccim\Sitemap\Models\Subdomain::getDefault()))
+					<xhtml:link rel="alternate"
+						hreflang="x-default"
+						href="http://{{ \Escuccim\Sitemap\Models\Subdomain::getDefault()->subdomain ? \Escuccim\Sitemap\Models\Subdomain::getDefault()->subdomain . '.' : '' }}{{ app_domain() }}{{ $page->uri }}" />
+				@endif
+				
 				@foreach($page->images as $image)
 					<image:image>
 						<image:loc>{{ app_url() }}{{$image->uri}}</image:loc>
