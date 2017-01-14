@@ -25,4 +25,5 @@ if ( ! function_exists('isUserAdmin')) {
         else {
             return (Auth::user()->isAdmin());
         }
+    }
 }
