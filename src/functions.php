@@ -7,7 +7,7 @@ if ( ! function_exists('app_domain')) {
         if(isset($_SERVER['SERVER_NAME'])){
             $pieces = explode('.', $_SERVER['SERVER_NAME']);
             $subdomain = $pieces[0];
-            if(count($pieces) >= 2){
+            if(count($pieces) > 2){
                 unset($pieces[0]);
                 $domain = implode('.', $pieces);
             } else {
