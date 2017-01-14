@@ -1,6 +1,6 @@
 <?php
 
-namespace escuccim\sitemap;
+namespace namespace Escuccim\Sitemap;
 
 use Illuminate\Support\ServiceProvider;
 

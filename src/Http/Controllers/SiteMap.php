@@ -6,16 +6,14 @@
  * Time: 11:05 AM
  */
 
-namespace App\Http\Controllers;
+namespace Escuccim\Sitemap\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Blog;
-use App\Tag;
-use App\Page;
-use App\Record;
-use App\Subdomain;
-use App\SiteMapImage;
-use App\Http\Requests\PageRequest;
+use Escuccim\Sitemap\Models\Page;
+use Escuccim\Sitemap\Models\Subdomain;
+use Escuccim\Sitemap\Models\SiteMapImage;
+use Escuccim\Sitemap\Http\Requests\PageRequest;
 
 class SiteMap extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Escuccim\Sitemap\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

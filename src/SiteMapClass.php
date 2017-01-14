@@ -1,8 +1,8 @@
 <?php
 
-namespace escuccim\sitemap;
+namespace Escuccim\Sitemap;
 
-class SkeletonClass
+class SiteMapClass
 {
     /**
      * Create a new Skeleton Instance
