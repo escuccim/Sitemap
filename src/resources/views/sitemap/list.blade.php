@@ -50,13 +50,13 @@
 						<h3>Subdomain Admin</h3>
 					</div>
 					<div class="col-md-2">
-						<a href="{{ action('SiteMapController@createSubdomain') }}" class="btn btn-primary">Add Subdomain</a>
+						<a href="{{ action('\Escuccim\Sitemap\Http\Controllers\MapController@createSubdomain') }}" class="btn btn-primary">Add Subdomain</a>
 					</div>
 				</div>
 			</div>
 
 			<div class="panel-body">
-				{!! Form::open(['action' => 'SiteMapController@setDefault']) !!}
+				{!! Form::open(['action' => '\Escuccim\Sitemap\Http\Controllers\MapController@setDefault']) !!}
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -71,7 +71,7 @@
 								<td>{{ $subdomain->subdomain }}</td>
 								<td>{{ $subdomain->language }}</td>
 								<td><input type="radio" name="default" value="{{ $subdomain->id }}" {{ $subdomain->default ? 'checked="CHECKED"' : '' }} onChange="this.form.submit()"></td>
-								<td><a class="btn btn-primary btn-sm" href="{{ action('SiteMapController@editSubdomain', $subdomain->id) }}">Edit</a></td>
+								<td><a class="btn btn-primary btn-sm" href="{{ action('\Escuccim\Sitemap\Http\Controllers\MapController@editSubdomain', $subdomain->id) }}">Edit</a></td>
 								<td><a class="btn btn-default btn-sm delete-subdomain" data-val="{{$subdomain->id}}">Delete</a></td>
 							</tr>
 						@endforeach

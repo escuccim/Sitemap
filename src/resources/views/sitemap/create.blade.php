@@ -8,10 +8,10 @@
 				<h3>Add Static Page</h3>
 			</div>
 			<div class="panel-body">
-				@include('errors.list')
+				@include('escuccim::errors.list')
 				
 				{!! Form::model($page, ['url' => 'sitemapadmin', 'class' => 'form-horizontal']) !!}
-					@include('sitemap.pageForm', ['submitButtonText' => 'Add Page'])
+					@include('escuccim::sitemap.pageForm', ['submitButtonText' => 'Add Page'])
 				{!! Form::close() !!}
 			</div>
 		</div>

@@ -16,7 +16,7 @@ use Escuccim\Sitemap\Models\SiteMapImage;
 use Escuccim\Sitemap\Http\Requests\PageRequest;
 use App\Http\Controllers\Controller;
 
-class SiteMap extends Controller
+class MapController extends Controller
 {
     public function __construct(){
         $this->middleware('admin')->except(['index', 'blog', 'pages', 'labels', 'records']);
@@ -29,7 +29,7 @@ class SiteMap extends Controller
     public function list(){
         $pages = Page::get();
         $subdomains = Subdomain::all();
-        return view('sitemap.list', compact('pages', 'subdomains'));
+        return view('escuccim::sitemap.list', compact('pages', 'subdomains'));
     }
 
     /**
@@ -40,7 +40,7 @@ class SiteMap extends Controller
         $changefreq = Page::listChangefreq();
         $page = new Page();
 
-        return view('sitemap.create', compact('languages', 'changefreq', 'page'));
+        return view('escuccim::sitemap.create', compact('languages', 'changefreq', 'page'));
     }
 
     /**
@@ -60,7 +60,7 @@ class SiteMap extends Controller
         $page = Page::where('id', $id)->first();
         $changefreq = Page::listChangefreq();
 
-        return view('sitemap.edit', compact('page', 'changefreq'));
+        return view('escuccim::sitemap.edit', compact('page', 'changefreq'));
     }
 
     public function update($id, PageRequest $request){
@@ -84,7 +84,7 @@ class SiteMap extends Controller
      */
     public function editImage($id){
         $image = SiteMapImage::where('id', $id)->first();
-        return view('sitemap.editImage', compact('image'));
+        return view('escuccim::sitemap.editImage', compact('image'));
     }
 
     public function updateImage($id, Request $request){
@@ -103,7 +103,7 @@ class SiteMap extends Controller
     public function addImage($page){
         $image = new SiteMapImage();
         $image->page_id = $page;
-        return view('sitemap.addImage', compact('image'));
+        return view('escuccim::sitemap.addImage', compact('image'));
     }
 
     public function storeImage($page, Request $request){
@@ -125,7 +125,7 @@ class SiteMap extends Controller
      * Subdomain Admin
      */
     public function createSubdomain(){
-        return view('sitemap.addDomain');
+        return view('escuccim::sitemap.addDomain');
     }
 
     public function storeSubdomain(Request $request){
@@ -161,7 +161,7 @@ class SiteMap extends Controller
 
     public function editSubdomain($id){
         $subdomain = Subdomain::where('id', $id)->first();
-        return view('sitemap.editSubdomain', compact('subdomain'));
+        return view('escuccim::sitemap.editSubdomain', compact('subdomain'));
     }
 
     public function updateSubdomain($id, Request $request){
@@ -180,18 +180,13 @@ class SiteMap extends Controller
      * Generate the actual sitemaps for index, blog, labels and static pages
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $blog = Blog::latest('published_at')->published()->first();
-
-        return response()->view('sitemap.sitemap', compact('blog'))->header('Content-Type', 'text/xml');
-    }
 
     public function pages(){
         $pages = Page::get();
 
         // set the last modified date to the first of this month
         $lastMod = date("c", strtotime(date("Y-m-01 00:00:00")));
-        return response()->view('sitemap.pages', compact('lastMod', 'pages'))->header('Content-Type', 'text/xml');
+        return response()->view('escuccim::sitemap.pages', compact('lastMod', 'pages'))->header('Content-Type', 'text/xml');
     }
 
 

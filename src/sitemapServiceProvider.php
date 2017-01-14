@@ -1,5 +1,4 @@
 <?php
-
 namespace Escuccim\Sitemap;
 
 use Illuminate\Support\ServiceProvider;
@@ -28,7 +27,7 @@ class sitemapServiceProvider extends ServiceProvider
 
         // publish config if necessary
          $this->publishes([
-                 __DIR__.'/config/config.php' => config_path('blog.php'),
+                 __DIR__.'/config/config.php' => config_path('sitemap.php'),
                  __DIR__ . '/resources/views' => base_path('resources/views/vendor/escuccim')
          ]);
 

@@ -8,10 +8,10 @@
                     <h3>Add Subdomain</h3>
                 </div>
                 <div class="panel-body">
-                    @include('errors.list')
+                    @include('escuccim::errors.list')
 
                     {!! Form::model($subdomain, ['url' => 'sitemapadmin/subdomain/' . $subdomain->id, 'method' => 'patch', 'class' => 'form-horizontal']) !!}
-                        @include('sitemap._subdomainForm', ['submitButtonText' => 'Edit Subdomain'])
+                        @include('escuccim::sitemap._subdomainForm', ['submitButtonText' => 'Edit Subdomain'])
                     {!! Form::close() !!}
                 </div>
             </div>

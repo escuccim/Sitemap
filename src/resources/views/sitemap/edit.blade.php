@@ -8,10 +8,10 @@
 				<h3>Add Static Page</h3>
 			</div>
 			<div class="panel-body">
-				@include('errors.list')
+				@include('escuccim::errors.list')
 				
 				{!! Form::model($page, ['method' => 'patch', 'class' => 'form-horizontal', 'action' => ['SiteMapController@update', $page->id]]) !!}
-					@include('sitemap.pageForm', ['submitButtonText' => 'Update Page'])
+					@include('escuccim::sitemap.pageForm', ['submitButtonText' => 'Update Page'])
 				{!! Form::close() !!}
 			</div>
 		</div>
@@ -40,7 +40,7 @@
 									<div class="col-md-3">{{ $image->uri }}</div>
 									<div class="col-md-1"><a href="/sitemapadmin/image/{{$image->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
 									<div class="col-md-1">
-										{!! Form::open(['method' => 'delete', 'action' => ['SiteMapController@destroyImage', $image->id]]) !!}
+										{!! Form::open(['method' => 'delete', 'action' => ['\Escuccim\Sitemap\Http\Controllers\MapController@destroyImage', $image->id]]) !!}
 												<button class="btn btn-sm btn-default">Delete</button>
 										{!! Form::close() !!}
 									</div>
