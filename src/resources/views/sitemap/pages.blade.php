@@ -26,7 +26,7 @@
 
 				@foreach($page->images as $image)
 					<image:image>
-						<image:loc>{{ app_url() }}{{$image->uri}}</image:loc>
+						<image:loc>http://{{ app_domain() }}{{$image->uri}}</image:loc>
 						<image:caption>{{ $image->caption }}</image:caption>
 						<image:title>{{ $image->title }}</image:title>
 					</image:image>
