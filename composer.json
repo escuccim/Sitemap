@@ -6,6 +6,7 @@
         "escuccim",
         "sitemap"
     ],
+    "minimum-stability": "dev",
     "homepage": "https://github.com/escuccim/sitemap",
     "license": "MIT",
     "authors": [
@@ -26,16 +27,16 @@
         "squizlabs/php_codesniffer": "^2.3"
     },
     "autoload": {
-        classmap": [
+        "classmap": [
             "src/Models"
         ],
-	"psr-4": {
-            "escuccim\\sitemap\\": "src"
+        "psr-4": {
+            "Escuccim\\Sitemap\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "escuccim\\sitemap\\": "tests"
+            "Escuccim\\Sitemap\\": "tests"
         }
     },
     "scripts": {

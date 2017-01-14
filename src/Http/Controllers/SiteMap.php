@@ -14,6 +14,7 @@ use Escuccim\Sitemap\Models\Page;
 use Escuccim\Sitemap\Models\Subdomain;
 use Escuccim\Sitemap\Models\SiteMapImage;
 use Escuccim\Sitemap\Http\Requests\PageRequest;
+use App\Http\Controllers\Controller;
 
 class SiteMap extends Controller
 {

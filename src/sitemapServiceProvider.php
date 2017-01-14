@@ -3,6 +3,7 @@
 namespace Escuccim\Sitemap;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Routing\Router;
 
 class sitemapServiceProvider extends ServiceProvider
 {
