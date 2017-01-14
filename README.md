@@ -8,25 +8,21 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+A little package to generate and maintain Google-compliant XML sitemaps for Laravel. Includes admin panel to add static pages, images, subdomains for translations and to generate sitemaps accordingly. Can easily be extended to add your own sitemaps for things like blogs, etc.
 
 ## Structure
 
 If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
 
 ```
-bin/        
-config/
 src/
 test/
-vendor/
 ```
 
 
 ## Install
 
-Via Composer
+Via Composer - THIS IS NOT ON PACKAGIST YET!!!
 
 ``` bash
 $ composer require escuccim/Sitemap
@@ -34,10 +30,7 @@ $ composer require escuccim/Sitemap
 
 ## Usage
 
-``` php
-$skeleton = new Escuccim\Sitemap();
-echo $skeleton->echoPhrase('Hello, League!');
-```
+This package contains its own routes, controllers, models and views and migrations so should work out of the box. The admin will be located at /sitemapadmin and the sitemap for static pages as controlled by the admin will be at /sitemap/pages. I personally have a sitemap index at /sitemap which points to other sitemaps which I create by extending the MapController provided by this package with custom views and routes.
 
 ## Change log
 
