@@ -32,6 +32,8 @@ $ composer require escuccim/Sitemap
 
 # Run the migrations
 
+# Publish the vendor files if you want
+
 # Is that it?
 
 ## Usage
