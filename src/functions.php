@@ -1,14 +1,6 @@
 <?php
 
 if ( ! function_exists('app_domain')) {
-
-    /**
-     * Arrange for a flash message.
-     *
-     * @param  string|null $message
-     * @param  string      $level
-     * @return \Laracasts\Flash\FlashNotifier
-     */
     function app_domain(){
         $domain = env('APP_URL');
 
@@ -24,4 +16,13 @@ if ( ! function_exists('app_domain')) {
         }
         return $domain;
     }
+}
+
+if ( ! function_exists('isUserAdmin')) {
+    function isUserAdmin(){
+        if(Auth::guest())
+            return false;
+        else {
+            return (Auth::user()->isAdmin());
+        }
 }
