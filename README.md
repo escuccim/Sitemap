@@ -8,7 +8,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 
-A little package to generate and maintain Google-compliant XML sitemaps for Laravel. Includes admin panel to add static pages, images, subdomains for translations and to generate sitemaps accordingly. Can easily be extended to add your own sitemaps for things like blogs, etc.
+A package to generate and maintain Google-compliant XML sitemaps for Laravel. Includes admin panel to add static pages, images, subdomains for translations and to generate sitemaps accordingly. Can easily be extended to add your own sitemaps for things like blogs, etc.
 
 ## Structure
 
@@ -31,6 +31,8 @@ $ composer require escuccim/Sitemap
 # Add to app.php config file.
 
 # Run the migrations
+
+# Register middleware?
 
 # Publish the vendor files if you want
 
