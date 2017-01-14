@@ -165,9 +165,9 @@ class MapController extends Controller
 
     public function updateSubdomain($id, Request $request){
         // validate the form
-        $this->validate($request, [
-            'language' => 'required',
-        ]);
+//        $this->validate($request, [
+//            'language' => 'required',
+//        ]);
 
         $subdomain = Subdomain::where('id', $id)->first();
         $subdomain->update($request->all());
