@@ -8,16 +8,6 @@
 
 A package to generate and maintain Google-compliant XML sitemaps for Laravel. Includes admin panel to add static pages, images, subdomains for translations and to generate sitemaps accordingly. Can easily be extended to add your own sitemaps for things like blogs, etc.
 
-## Structure
-
-If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
-
-```
-src/
-test/
-```
-
-
 ## Install
 
 Via Composer - THIS IS NOT ON PACKAGIST YET!!!
@@ -34,6 +24,7 @@ Run the migrations:
 ``` bash
 php artisan migrate
 ```
+The migration seeds the database with subdomain of 'www' which is set to be the default. If you wish to use other subdomains you can do so from the admin page, and can assign them to correspond with hreflang tags in the sitemap.
 
 This package uses a middleware to determine if the user is authorized to access the sitemap admin. This extends the Laravel Auth package and adds a field to the users table called 'type' which is 1 if the user is an admin, and 0 otherwise. You need to add the middleware to app\Http\Kernel.php:
 ```
@@ -44,9 +35,7 @@ If you wish you can publish the views and config file to your app using:
 ```
 php artisan vendor:publish
 ```
-If you wish to modify any of the views or change the config you should do this. The config will be published to: /config/sitemap.php and currently only has one value which determines if you are using subdomains for localization and if so will add hreflang tags to the sitemap.
-
-# Is that it?
+The config will be published to: /config/sitemap.php and currently only has one value which determines if you are using subdomains for localization and if so will add hreflang tags to the sitemap. The views will be published as well.
 
 ## Usage
 
