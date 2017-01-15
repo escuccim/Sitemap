@@ -19,8 +19,9 @@ class CreateSubdomainsTable extends Migration
             $table->string('language');
             $table->boolean('default')->default(0);
             $table->timestamps();
-
         });
+
+        $this->seedDatabase();
     }
 
     /**
@@ -31,5 +32,16 @@ class CreateSubdomainsTable extends Migration
     public function down()
     {
         Schema::drop('subdomains');
+    }
+
+    /**
+     * Add a default value to the DB so this stuff doesn't error out
+     */
+    private function seedDatabase()
+    {
+        DB::table('subdomains')->insert([
+            'subdomain' => 'www',
+            'default' => '1',
+        ]);
     }
 }
