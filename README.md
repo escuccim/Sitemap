@@ -10,7 +10,7 @@ A package to generate and maintain Google-compliant XML sitemaps for Laravel. In
 
 ## Install
 
-Via Composer - THIS IS NOT ON PACKAGIST YET!!!
+Via Composer -
 
 ``` bash
 $ composer require escuccim/Sitemap
