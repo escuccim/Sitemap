@@ -25,7 +25,7 @@ class MapController extends Controller
      * Sitemap admin - list of static pages
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function list(){
+    public function listPages(){
         $pages = Page::get();
         $subdomains = Subdomain::all();
         return view('escuccim::sitemap.list', compact('pages', 'subdomains'));

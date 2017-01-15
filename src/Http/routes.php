@@ -3,7 +3,7 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('sitemap/pages', 'MapController@pages');
 
     /* Sitemap Admin */
-    Route::get('sitemapadmin', 'MapController@list');
+    Route::get('sitemapadmin', 'MapController@listPages');
     Route::get('sitemapadmin/create', 'MapController@create');
     Route::post('sitemapadmin', 'MapController@store');
     Route::get('sitemapadmin/{id}/edit', 'MapController@edit');
