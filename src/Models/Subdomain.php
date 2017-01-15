@@ -15,6 +15,7 @@ class Subdomain extends Model
         'default',
     ];
 
+    // return the default subdomain, used in generating sitemap
     public static function getDefault(){
         return Subdomain::where('default', 1)->first();
     }

@@ -13,14 +13,6 @@ class Page extends Model
 			'uri',
 			'priority',
 	];
-
-	// return available language options, no need to put this in DB, won't change too much
-	public static function listLanguages(){
-		return [
-				'English' => 'en',
-				'French' => 'fr',
-		];
-	}
 	
 	// return the possible values for change frequency
 	public static function listChangefreq(){
@@ -34,6 +26,7 @@ class Page extends Model
 		];
 	}
 
+	// relationship with sitemapimages
 	public function images(){
         return $this->hasMany('\Escuccim\Sitemap\Models\SiteMapImage');
     }

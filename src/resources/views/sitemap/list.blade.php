@@ -4,6 +4,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
+			{{-- Section for Pages --}}
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<div class="row">
@@ -44,6 +45,7 @@
 				</div>
 			</div>
 
+			{{-- Section for subdomains --}}
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<div class="row">
@@ -84,49 +86,50 @@
 		</div>
 	</div>
 </div>
-	@if(isUserAdmin())
-		<script>
-			$.ajaxSetup({
-				headers: {
-					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-				}
-			});
-			$(".delete-page").click(function(e){
-				e.preventDefault();
-				var page = $(this).data('val');
-				var x = confirm("Are you sure you want to delete this?");
-				if(x){
-					$.ajax({
-						url: '/sitemapadmin/' + page,
-						type: 'delete',
-						success: function(result){
-						},
-						error: function(result){
-						},
-						complete: function(result){
-							location.reload();
-						},
-					});
-				}
-			});
-			$(".delete-subdomain").click(function(e){
-				e.preventDefault();
-				var id = $(this).data('val');
-				var x = confirm("Are you sure you want to delete this?");
-				if(x){
-					$.ajax({
-						url: '/sitemapadmin/subdomain/' + id,
-						type: 'delete',
-						success: function(result){
-						},
-						error: function(result){
-						},
-						complete: function(result){
-							location.reload();
-						},
-					});
-				}
-			});
-		</script>
-	@endif
+
+@if(isUserAdmin())
+	<script>
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+		$(".delete-page").click(function(e){
+			e.preventDefault();
+			var page = $(this).data('val');
+			var x = confirm("Are you sure you want to delete this?");
+			if(x){
+				$.ajax({
+					url: '/sitemapadmin/' + page,
+					type: 'delete',
+					success: function(result){
+					},
+					error: function(result){
+					},
+					complete: function(result){
+						location.reload();
+					},
+				});
+			}
+		});
+		$(".delete-subdomain").click(function(e){
+			e.preventDefault();
+			var id = $(this).data('val');
+			var x = confirm("Are you sure you want to delete this?");
+			if(x){
+				$.ajax({
+					url: '/sitemapadmin/subdomain/' + id,
+					type: 'delete',
+					success: function(result){
+					},
+					error: function(result){
+					},
+					complete: function(result){
+						location.reload();
+					},
+				});
+			}
+		});
+	</script>
+@endif
 @endsection

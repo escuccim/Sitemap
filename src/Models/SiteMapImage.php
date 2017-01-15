@@ -16,6 +16,7 @@ class SiteMapImage extends Model
         'title',
     ];
 
+    // relationship to page
     public function page(){
         return $this->belongsTo('\Escuccim\Sitemap\Models\Page', 'page_id');
     }

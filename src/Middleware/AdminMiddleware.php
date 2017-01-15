@@ -21,7 +21,7 @@ class AdminMiddleware
 	    		return $next($request);
 	        } 
 		}
+		// if user isn't authorized show a 404 error
 		abort(404, 'Message');
-// 		return redirect('/');
     }
 }

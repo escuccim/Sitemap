@@ -54,6 +54,11 @@ class MapController extends Controller
         return redirect('sitemapadmin');
     }
 
+    /**
+     * Display an edit form for the page specified
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id){
         // get the page
         $page = Page::where('id', $id)->first();
@@ -62,6 +67,12 @@ class MapController extends Controller
         return view('escuccim::sitemap.edit', compact('page', 'changefreq'));
     }
 
+    /**
+     * Update the page
+     * @param $id
+     * @param PageRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update($id, PageRequest $request){
         // update the page
         $page = Page::where('id', $id)->first();
@@ -69,6 +80,11 @@ class MapController extends Controller
         return redirect('sitemapadmin');
     }
 
+    /**
+     * Delete a page
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
     public function destroy($id){
         $results = ['message' => 'Success'];
 
@@ -121,31 +137,16 @@ class MapController extends Controller
     }
 
     /**
-     * Subdomain Admin
+     * Admin for managing subdomains
      */
     public function createSubdomain(){
         return view('escuccim::sitemap.addDomain');
     }
 
     public function storeSubdomain(Request $request){
-        // validate the form
-//        $this->validate($request, [
-//            'language' => 'required',
-//        ]);
-
+        // validation removed because it causes problems if people don't want to assign languages
         // store the subdomain
         Subdomain::create($request->all());
-
-        // redirect back
-        return redirect('/sitemapadmin');
-    }
-
-    public function setDefault(Request $request){
-        // set all values to 0
-        Subdomain::where('default', 1)->update(['default' => 0]);
-
-        // set the selected to default
-        Subdomain::where('id', $request->default)->update(['default' => 1]);
 
         // redirect back
         return redirect('/sitemapadmin');
@@ -164,11 +165,6 @@ class MapController extends Controller
     }
 
     public function updateSubdomain($id, Request $request){
-        // validate the form
-//        $this->validate($request, [
-//            'language' => 'required',
-//        ]);
-
         $subdomain = Subdomain::where('id', $id)->first();
         $subdomain->update($request->all());
 
@@ -176,7 +172,24 @@ class MapController extends Controller
     }
 
     /**
-     * Generate the actual sitemaps for index, blog, labels and static pages
+     * Set a subdomain to be the default
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function setDefault(Request $request){
+        // set all values to 0
+        Subdomain::where('default', 1)->update(['default' => 0]);
+
+        // set the selected to default
+        Subdomain::where('id', $request->default)->update(['default' => 1]);
+
+        // redirect back
+        return redirect('/sitemapadmin');
+    }
+
+
+    /**
+     * Generate the actual sitemaps for static pages, sitemap index and other pages have been removed to another controller to make this universal
      * @return \Illuminate\Http\Response
      */
 
