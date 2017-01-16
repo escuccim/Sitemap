@@ -27,9 +27,13 @@ class sitemapServiceProvider extends ServiceProvider
 
         // publish config if necessary
          $this->publishes([
-                 __DIR__.'/config/config.php' => config_path('sitemap.php'),
-                 __DIR__ . '/resources/views' => base_path('resources/views/vendor/escuccim')
-         ]);
+             __DIR__.'/config/config.php' => config_path('sitemap.php'),
+             __DIR__.'/database/migrations' => database_path('migrations')
+         ], 'config');
+
+         $this->publishes([
+             __DIR__ . '/resources/views' => base_path('resources/views/vendor/escuccim')
+         ], 'views');
 
         // use the default configuration file as fallback
          $this->mergeConfigFrom(
