@@ -35,7 +35,8 @@ If you wish you can publish the views and config file to your app using:
 ```
 php artisan vendor:publish
 ```
-The config will be published to: /config/sitemap.php and currently only has one value which determines if you are using subdomains for localization and if so will add hreflang tags to the sitemap. The views will be published as well.
+
+There are two groups of files that can be published - config publishes the migrations and config file, views publishes the views. To only publish one of these groups add --tag=config or --tag=views. 
 
 ## Usage
 
