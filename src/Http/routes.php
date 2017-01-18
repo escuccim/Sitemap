@@ -2,7 +2,7 @@
 Route::group(['middleware' => ['web']], function() {
     Route::get('sitemap/pages', 'MapController@pages');
 
-    /* Sitemap Admin */
+    /* Sitemap Page Admin */
     Route::get('sitemapadmin', 'MapController@listPages');
     Route::get('sitemapadmin/create', 'MapController@create');
     Route::post('sitemapadmin', 'MapController@store');
@@ -24,4 +24,13 @@ Route::group(['middleware' => ['web']], function() {
     Route::delete('sitemapadmin/subdomain/{id}', 'MapController@destroySubdomain');
     Route::get('sitemapadmin/subdomain/{id}', 'MapController@editSubdomain');
     Route::patch('sitemapadmin/subdomain/{id}', 'MapController@updateSubdomain');
+
+    /* Sitemap Index Admin */
+    Route::get('sitemapadmin/index/create', 'MapController@createSitemap');
+    Route::post('sitemapadmin/index', 'MapController@storeSitemap');
+    Route::delete('sitemapadmin/index/{id}', 'MapController@destroySitemap');
+    Route::get('sitemapadmin/index/{id}', 'MapController@editSitemap');
+    Route::patch('sitemapadmin/index/{id}', 'MapController@updateSitemap');
+
+    Route::get('sitemap', 'MapController@sitemapIndex');
 });

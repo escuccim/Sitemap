@@ -9,6 +9,7 @@
 namespace Escuccim\Sitemap\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Escuccim\Sitemap\Models\Sitemap;
 use Escuccim\Sitemap\Models\Page;
 use Escuccim\Sitemap\Models\Subdomain;
 use Escuccim\Sitemap\Models\SiteMapImage;
@@ -28,7 +29,8 @@ class MapController extends Controller
     public function listPages(){
         $pages = Page::get();
         $subdomains = Subdomain::all();
-        return view('escuccim::sitemap.list', compact('pages', 'subdomains'));
+        $sitemaps = Sitemap::all();
+        return view('escuccim::sitemap.list', compact('pages', 'subdomains', 'sitemaps'));
     }
 
     /**
@@ -187,6 +189,55 @@ class MapController extends Controller
         return redirect('/sitemapadmin');
     }
 
+    /**
+     * Section for Sitemap index admin,
+     */
+    public function createSitemap(){
+        $sitemap = new Sitemap();
+        return view('escuccim::sitemapindex.create', compact('sitemap'));
+    }
+
+    public function storeSitemap(Request $request){
+        // validate
+        $this->validate($request, [
+            'uri' => 'required',
+        ]);
+
+        // store
+        Sitemap::create($request->all());
+
+        // redirect
+        return redirect('/sitemapadmin');
+    }
+
+    public function editSitemap($id){
+        $sitemap = Sitemap::where('id', $id)->first();
+        return view('escuccim::sitemapindex.edit', compact('sitemap'));
+    }
+
+    public function updateSitemap($id, Request $request){
+        // validate
+        $this->validate($request, [
+            'uri' => 'required',
+        ]);
+
+        // store
+        $sitemap = Sitemap::where('id', $id)->first();
+        $sitemap->update($request->all());
+
+        return redirect('/sitemapadmin');
+    }
+
+    public function destroySitemap($id){
+        Sitemap::destroy($id);
+        $results = ['message' => 'Success'];
+        return response($results, 200);
+    }
+
+    public function sitemapIndex(){
+        $sitemaps = Sitemap::get();
+        return view('escuccim::sitemapindex.sitemap', compact('sitemaps'));
+    }
 
     /**
      * Generate the actual sitemaps for static pages, sitemap index and other pages have been removed to another controller to make this universal

@@ -36,10 +36,42 @@
 								<td>{{ $page->uri }}</td>
 								<td>{{ $page->priority }}</td>
 								<td>{{ $page->changefreq }}</td>
-								<td><a class="btn btn-primary btn-sm" href="/sitemapadmin/{{ $page->id }}/edit">Edit</a></td>
-								<td><a class="btn btn-default btn-sm delete-page" data-val="{{$page->id}}">Delete</a></td>
+								<td width="100px;"><a class="btn btn-primary btn-sm" href="/sitemapadmin/{{ $page->id }}/edit">Edit</a></td>
+								<td width="100px;"><a class="btn btn-default btn-sm delete-page" data-val="{{$page->id}}">Delete</a></td>
 							</tr>
 						@endforeach
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			{{-- Section for sitemaps --}}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-md-10">
+							<h3>Sitemap Admin</h3>
+						</div>
+						<div class="col-md-2">
+							<a href="{{ action('\Escuccim\Sitemap\Http\Controllers\MapController@createSitemap') }}" class="btn btn-primary">Add Sitemap</a>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>URI</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach($sitemaps as $sitemap)
+								<tr>
+									<td>{{ $sitemap->uri }}</td>
+									<td width="100px;"><a class="btn btn-primary btn-sm" href="/sitemapadmin/index/{{ $sitemap->id }}">Edit</a></td>
+									<td width="100px;"><a class="btn btn-default btn-sm delete-index" data-val="{{$sitemap->id}}">Delete</a></td>
+								</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>
@@ -74,8 +106,8 @@
 									<td>{{ $subdomain->subdomain }}</td>
 									<td>{{ $subdomain->language }}</td>
 									<td><input type="radio" name="default" value="{{ $subdomain->id }}" {{ $subdomain->default ? 'checked="CHECKED"' : '' }} onChange="this.form.submit()"></td>
-									<td><a class="btn btn-primary btn-sm" href="{{ action('\Escuccim\Sitemap\Http\Controllers\MapController@editSubdomain', $subdomain->id) }}">Edit</a></td>
-									<td><a class="btn btn-default btn-sm delete-subdomain" data-val="{{$subdomain->id}}">Delete</a></td>
+									<td width="100px;"><a class="btn btn-primary btn-sm" href="{{ action('\Escuccim\Sitemap\Http\Controllers\MapController@editSubdomain', $subdomain->id) }}">Edit</a></td>
+									<td width="100px;"><a class="btn btn-default btn-sm delete-subdomain" data-val="{{$subdomain->id}}">Delete</a></td>
 								</tr>
 							@endforeach
 						</tbody>
@@ -130,6 +162,24 @@
 				});
 			}
 		});
+        $(".delete-index").click(function(e){
+            e.preventDefault();
+            var id = $(this).data('val');
+            var x = confirm("Are you sure you want to delete this?");
+            if(x){
+                $.ajax({
+                    url: '/sitemapadmin/index/' + id,
+                    type: 'delete',
+                    success: function(result){
+                    },
+                    error: function(result){
+                    },
+                    complete: function(result){
+                        location.reload();
+                    },
+                });
+            }
+        });
 	</script>
 @endif
 @endsection
