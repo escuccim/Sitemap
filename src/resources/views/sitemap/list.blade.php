@@ -62,9 +62,14 @@
 						<thead>
 							<tr>
 								<th>URI</th>
+								<th colspan="2"></th>
 							</tr>
 						</thead>
 						<tbody>
+							<tr>
+								<td>/sitemap/pages - <i>(default)</i></td>
+								<td colspan="2"></td>
+							</tr>
 							@foreach($sitemaps as $sitemap)
 								<tr>
 									<td>{{ $sitemap->uri }}</td>
@@ -98,6 +103,7 @@
 								<th>Subdomain</th>
 								<th>Language</th>
 								<th>Default</th>
+								<th colspan="2"></th>
 							</tr>
 						</thead>
 						<tbody>
