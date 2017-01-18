@@ -16,6 +16,7 @@ class CreateSitemaps extends Migration
         Schema::create('sitemaps', function (Blueprint $table){
             $table->increments('id');
             $table->string('uri');
+            $table->string('model')->nullable();
             $table->timestamps();
 
         });

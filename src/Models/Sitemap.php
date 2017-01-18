@@ -9,6 +9,7 @@ class Sitemap extends Model
     // what fields are mass fillable
     protected $fillable = [
         'uri',
+        'model',
     ];
 
 }

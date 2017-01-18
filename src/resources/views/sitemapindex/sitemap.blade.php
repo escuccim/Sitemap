@@ -7,8 +7,8 @@
     </sitemap>
     @foreach($sitemaps as $sitemap)
         <sitemap>
-            <loc>{{ app_url() }}{{$sitemap->uri}}</loc>
-            <lastmod>{{ date("c", strtotime($sitemap->updated_at)) }}</lastmod>
+            <loc>{{ app_url() }}{{$sitemap['uri']}}</loc>
+            <lastmod>{{ date("c", strtotime($sitemap['date'])) }}</lastmod>
         </sitemap>
     @endforeach
 </sitemapindex>

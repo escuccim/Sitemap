@@ -15,6 +15,7 @@ use Escuccim\Sitemap\Models\Subdomain;
 use Escuccim\Sitemap\Models\SiteMapImage;
 use Escuccim\Sitemap\Http\Requests\PageRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class MapController extends Controller
 {
@@ -236,6 +237,18 @@ class MapController extends Controller
 
     public function sitemapIndex(){
         $sitemaps = Sitemap::get();
+
+        $dataArray = [];
+        foreach($sitemaps as $sitemap){
+           $row = DB::table($sitemap->model)->orderBy('updated_at', 'desc')->first();
+           $date = $row->updated_at;
+           $dataArray[] = [
+               'uri' => $sitemap->uri,
+               'date' => $date,
+           ];
+        }
+        $sitemaps = $dataArray;
+
         return view('escuccim::sitemapindex.sitemap', compact('sitemaps'));
     }
 

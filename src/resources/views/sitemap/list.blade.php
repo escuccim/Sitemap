@@ -62,17 +62,20 @@
 						<thead>
 							<tr>
 								<th>URI</th>
+								<th>Table</th>
 								<th colspan="2"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>/sitemap/pages - <i>(default)</i></td>
+								<td></td>
 								<td colspan="2"></td>
 							</tr>
 							@foreach($sitemaps as $sitemap)
 								<tr>
 									<td>{{ $sitemap->uri }}</td>
+									<td>{{ $sitemap->model }}</td>
 									<td width="100px;"><a class="btn btn-primary btn-sm" href="/sitemapadmin/index/{{ $sitemap->id }}">Edit</a></td>
 									<td width="100px;"><a class="btn btn-default btn-sm delete-index" data-val="{{$sitemap->id}}">Delete</a></td>
 								</tr>
