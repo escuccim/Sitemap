@@ -4,19 +4,11 @@ All Notable changes to `Sitemap` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## NEXT - YYYY-MM-DD
+## v0.1.1 - 2017-01-18
 
 ### Added
-- Nothing
-
-### Deprecated
-- Nothing
+- Dynamically generated sitemap index
 
 ### Fixed
-- Nothing
+- Fixed some migrations that were causing problems
 
-### Removed
-- Nothing
-
-### Security
-- Nothing

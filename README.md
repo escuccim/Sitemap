@@ -40,7 +40,11 @@ There are two groups of files that can be published - config publishes the migra
 
 ## Usage
 
-This package contains its own routes, controllers, models and views and migrations so should work out of the box. The admin will be located at /sitemapadmin and the sitemap for static pages as controlled by the admin will be at /sitemap/pages. I personally have a sitemap index at /sitemap which points to other sitemaps which I create by extending the MapController provided by this package with custom views and routes.
+This package contains its own routes, controllers, models and views and migrations so should work out of the box. The admin will be located at /sitemapadmin and the sitemap for static pages as controlled by the admin will be at /sitemap/pages. 
+
+I just added a sitemap index which is at /sitemap and is controlled by /sitemapadmin. The sitemap index takes a URI for other sitemaps you may have, as well as a 'table'. 'table' references a database table and will pull the latest updated_at date from that table to use as the lastmod date for that sitemap. If you do not specify a table it will default to the first day of the current month to use as the lastmod date.
+
+You should use the sitemap index to list any additional sitemaps you want included in the index. The pages sitemap is always listed.
 
 ## Change log
 

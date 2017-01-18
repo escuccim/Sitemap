@@ -240,8 +240,12 @@ class MapController extends Controller
 
         $dataArray = [];
         foreach($sitemaps as $sitemap){
-           $row = DB::table($sitemap->model)->orderBy('updated_at', 'desc')->first();
-           $date = $row->updated_at;
+            if($sitemap->model){
+                $row = DB::table($sitemap->model)->orderBy('updated_at', 'desc')->first();
+                $date = $row->updated_at;
+            } else {
+                $date = date('Y-m-01');
+            }
            $dataArray[] = [
                'uri' => $sitemap->uri,
                'date' => $date,
