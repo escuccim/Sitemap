@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 class MapController extends Controller
 {
     public function __construct(){
-        $this->middleware('admin')->except(['index', 'blog', 'pages', 'labels', 'records']);
+        $this->middleware('admin')->except(['index', 'blog', 'pages', 'labels', 'records', 'sitemapIndex']);
     }
 
     /**
