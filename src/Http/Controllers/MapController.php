@@ -238,7 +238,12 @@ class MapController extends Controller
     public function sitemapIndex(){
         $sitemaps = Sitemap::get();
 
-        $dataArray = [];
+        // get date for pages
+        $date = DB::table('pages')->orderBy('updated_at', 'desc')->first()->updated_at;
+        $dataArray[] = [
+            'uri' => '/sitemap/pages',
+            'date' => $date,
+        ];
         foreach($sitemaps as $sitemap){
             if($sitemap->model){
                 $row = DB::table($sitemap->model)->orderBy('updated_at', 'desc')->first();
