@@ -1,19 +1,16 @@
 <?php
 
 if ( ! function_exists('app_domain')) {
-    function app_domain(){
-        $domain = env('APP_URL');
-
+    function app_domain()
+    {
         if(isset($_SERVER['SERVER_NAME'])){
-            $pieces = explode('.', $_SERVER['SERVER_NAME']);
-            $subdomain = $pieces[0];
-            if(count($pieces) > 2){
-                unset($pieces[0]);
-                $domain = implode('.', $pieces);
-            } else {
-                $domain = $_SERVER['SERVER_NAME'];
-            }
+            $domain = $_SERVER['SERVER_NAME'];
+        } else {
+            $domain = str_replace('http://', env('APP_URL', 'ericscuccimarra.com'));
         }
+        $pieces = explode('.', $domain);
+        $pieces = array_splice($pieces, -2);
+        $domain = implode('.', $pieces);
         return $domain;
     }
 }
