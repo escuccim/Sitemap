@@ -6,7 +6,7 @@ if ( ! function_exists('app_domain')) {
         if(isset($_SERVER['SERVER_NAME'])){
             $domain = $_SERVER['SERVER_NAME'];
         } else {
-            $domain = str_replace('http://', env('APP_URL', 'ericscuccimarra.com'));
+            $domain = str_replace('http://','', env('APP_URL', 'ericscuccimarra.com'));
         }
         $pieces = explode('.', $domain);
         $pieces = array_splice($pieces, -2);
