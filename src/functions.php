@@ -15,6 +15,13 @@ if ( ! function_exists('app_domain')) {
     }
 }
 
+if ( ! function_exists('app_url')) {
+    function app_url()
+    {
+        return 'http://' . app_domain();
+    }
+}
+
 if ( ! function_exists('isUserAdmin')) {
     function isUserAdmin(){
         if(Auth::guest())
