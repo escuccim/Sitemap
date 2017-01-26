@@ -28,7 +28,6 @@ class sitemapServiceProvider extends ServiceProvider
         // publish config if necessary
          $this->publishes([
              __DIR__.'/config/config.php' => config_path('sitemap.php'),
-             __DIR__.'/database/migrations' => database_path('migrations')
          ], 'config');
 
          $this->publishes([
