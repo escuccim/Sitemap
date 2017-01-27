@@ -16,7 +16,7 @@ class CreateSubdomainsTable extends Migration
         Schema::create('subdomains', function (Blueprint $table){
             $table->increments('id');
             $table->string('subdomain')->nullable();
-            $table->string('language');
+            $table->string('language')->default('en');
             $table->boolean('default')->default(0);
             $table->timestamps();
         });
