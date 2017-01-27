@@ -237,27 +237,31 @@ class MapController extends Controller
 
     public function sitemapIndex(){
         $sitemaps = Sitemap::get();
-
-        // get date for pages
-        $date = DB::table('pages')->orderBy('updated_at', 'desc')->first()->updated_at;
+        // default date
+        $date = date('c');
         $dataArray[] = [
             'uri' => '/sitemap/pages',
             'date' => $date,
         ];
-        foreach($sitemaps as $sitemap){
-            if($sitemap->model){
-                $row = DB::table($sitemap->model)->orderBy('updated_at', 'desc')->first();
-                $date = $row->updated_at;
-            } else {
-                $date = date('Y-m-01');
+
+        if(count($sitemaps)) {
+            // get date for pages
+            $date = DB::table('pages')->orderBy('updated_at', 'desc')->first()->updated_at;
+
+            foreach ($sitemaps as $sitemap) {
+                if ($sitemap->model) {
+                    $row = DB::table($sitemap->model)->orderBy('updated_at', 'desc')->first();
+                    $date = $row->updated_at;
+                } else {
+                    $date = date('Y-m-01');
+                }
+                $dataArray[] = [
+                    'uri' => $sitemap->uri,
+                    'date' => $date,
+                ];
             }
-           $dataArray[] = [
-               'uri' => $sitemap->uri,
-               'date' => $date,
-           ];
         }
         $sitemaps = $dataArray;
-
         return view('escuccim::sitemapindex.sitemap', compact('sitemaps'));
     }
 
