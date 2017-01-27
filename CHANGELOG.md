@@ -11,6 +11,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Changed
 - All references in code to middleware changed to point to config file
+- Fixed migrations
+- Changed controller so it doesn't error out if no data in database
+- Other bug fixes
 
 ## v0.1.1 - 2017-01-18
 
