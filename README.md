@@ -27,7 +27,7 @@ The migration seeds the database with subdomain of 'www' which is set to be the 
 
 This package uses a middleware to determine if the user is authorized to access the sitemap admin. This extends the Laravel Auth package and adds a field to the users table called 'type' which is 1 if the user is an admin, and 0 otherwise. You need to add the middleware to app\Http\Kernel.php:
 ```
-'admin' => \Escuccim\LaraBlog\Middleware\AdminMiddleware::class,
+'admin' => \Escuccim\Sitemap\Middleware\AdminMiddleware::class,
 ```
 
 If you wish you can publish the views and config file to your app using:
