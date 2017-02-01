@@ -11,6 +11,7 @@
 				<div class="panel-body">
 					@include('escuccim::errors.list')
 					<form action="/sitemapadmin" class="form-horizontal" method="post">
+						{{ csrf_field() }}
 						@include('escuccim::sitemap.pageForm', ['submitButtonText' => 'Add Page'])
 					</form>
 				</div>

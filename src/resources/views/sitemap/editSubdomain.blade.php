@@ -10,7 +10,7 @@
                 </div>
                 <div class="panel-body">
                     @include('escuccim::errors.list')
-                    <form method="POST" action="/sitemapadmin/index/{{$subdomain->id}}" accept-charset="UTF-8" class="form-horizontal">
+                    <form method="POST" action="/sitemapadmin/subdomain/{{$subdomain->id}}" accept-charset="UTF-8" class="form-horizontal">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="PATCH">
                         @include('escuccim::sitemap._subdomainForm', ['submitButtonText' => 'Edit Subdomain'])
