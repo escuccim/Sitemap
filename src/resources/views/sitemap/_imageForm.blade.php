@@ -1,23 +1,23 @@
-{!! Form::hidden('page_id') !!}
+<input type="hidden" name="page_id" id="page_id" value="{{$image->page_id}}">
 
 <div class="form-group">
-    {!! Form::label('caption', 'Caption:', ['class' => 'control-label col-md-2']) !!}
+    <label for="caption" class="control-label col-md-2">Caption:</label>
     <div class="col-md-10">
-        {!! Form::text('caption', null, ['class' => 'form-control']) !!}
+        <input class="form-control" name="caption" type="text" value="{{$image->caption}}" id="caption">
     </div>
 </div>
 
 <div class="form-group">
-    {!! Form::label('title', 'Title:', ['class' => 'control-label col-md-2']) !!}
+    <label for="title" class="control-label col-md-2">Title:</label>
     <div class="col-md-10">
-        {!! Form::text('title', null, ['class' => 'form-control']) !!}
+        <input class="form-control" name="title" type="text" value="{{$image->title}}" id="title">
     </div>
 </div>
 
 <div class="form-group">
-    {!! Form::label('uri', 'URI:', ['class' => 'control-label col-md-2']) !!}
+    <label for="uri" class="control-label col-md-2">URI:</label>
     <div class="col-md-10">
-        {!! Form::text('uri', null, ['class' => 'form-control']) !!}
+        <input class="form-control" name="uri" type="text" value="{{$image->uri}}" id="uri">
     </div>
 </div>
 

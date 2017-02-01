@@ -11,9 +11,11 @@
 				<div class="panel-body">
 					@include('escuccim::errors.list')
 
-					{!! Form::model($page, ['method' => 'patch', 'class' => 'form-horizontal', 'action' => ['\Escuccim\Sitemap\Http\Controllers\MapController@update', $page->id]]) !!}
+					<form method="POST" action="/sitemapadmin/{{$page->id}}/edit" accept-charset="UTF-8" class="form-horizontal">
+						{{csrf_field()}}
+						<input name="_method" type="hidden" value="PATCH">
 						@include('escuccim::sitemap.pageForm', ['submitButtonText' => 'Update Page'])
-					{!! Form::close() !!}
+					</form>
 				</div>
 			</div>
 
@@ -41,9 +43,11 @@
 										<div class="col-md-3">{{ $image->uri }}</div>
 										<div class="col-md-1"><a href="/sitemapadmin/image/{{$image->id}}/edit" class="btn btn-sm btn-primary">Edit</a></div>
 										<div class="col-md-1">
-											{!! Form::open(['method' => 'delete', 'action' => ['\Escuccim\Sitemap\Http\Controllers\MapController@destroyImage', $image->id]]) !!}
+											<form method="POST" action="/sitemapadmin/image/{{$image->id}}" accept-charset="UTF-8">
+												<input name="_method" type="hidden" value="DELETE">
+												{{ csrf_field() }}
 													<button class="btn btn-sm btn-default">Delete</button>
-											{!! Form::close() !!}
+											</form>
 										</div>
 									</div>
 								</div>

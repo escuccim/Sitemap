@@ -10,10 +10,11 @@
 				</div>
 				<div class="panel-body">
 					@include('escuccim::errors.list')
-
-					{!! Form::model($image, ['action' => ['\Escuccim\Sitemap\Http\Controllers\MapController@editImage', $image->id], 'method' => 'patch', 'class' => 'form-horizontal']) !!}
+					<form method="POST" action="/sitemapadmin/image/1/edit" accept-charset="UTF-8" class="form-horizontal">
+						{{csrf_field()}}
+						<input name="_method" type="hidden" value="PATCH">
 						@include('escuccim::sitemap._imageForm', ['submitButtonText' => 'Edit Image'])
-					{!! Form::close() !!}
+					</form>
 				</div>
 			</div>
 		</div>

@@ -8,6 +8,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Added
 - Ability to specify admin middleware in config file
+- Removed references to Laravel's form classes to reduce dependencies
 
 ## Changed
 - All references in code to middleware changed to point to config file

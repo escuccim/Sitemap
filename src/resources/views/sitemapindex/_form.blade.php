@@ -1,14 +1,14 @@
 <div class="form-group">
-    {!! Form::label('uri', 'URI:', ['class' => 'control-label col-md-2']) !!}
+    <label for="uri" class="control-label col-md-2">URI:</label>
     <div class="col-md-10">
-        {!! Form::text('uri', null, ['class' => 'form-control']) !!}
+        <input class="form-control" name="uri" type="text" id="uri" value="{{$sitemap->uri}}">
     </div>
 </div>
 
 <div class="form-group">
-    {!! Form::label('model', 'Table:', ['class' => 'control-label col-md-2']) !!}
+    <label for="model" class="control-label col-md-2">Table:</label>
     <div class="col-md-10">
-        {!! Form::text('model', null, ['class' => 'form-control']) !!}
+        <input class="form-control" name="model" type="text" id="model" value="{{$sitemap->model}}">
     </div>
 </div>
 

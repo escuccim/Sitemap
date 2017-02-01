@@ -143,7 +143,8 @@ class MapController extends Controller
      * Admin for managing subdomains
      */
     public function createSubdomain(){
-        return view('escuccim::sitemap.addDomain');
+        $subdomain = new Subdomain();
+        return view('escuccim::sitemap.addDomain', compact('subdomain'));
     }
 
     public function storeSubdomain(Request $request){

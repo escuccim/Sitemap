@@ -99,7 +99,8 @@
 				</div>
 
 				<div class="panel-body">
-					{!! Form::open(['action' => '\Escuccim\Sitemap\Http\Controllers\MapController@setDefault']) !!}
+					<form method="POST" action="/sitemapadmin/subdomain/setdefault" accept-charset="UTF-8">
+						{{csrf_field()}}
 					<table class="table table-striped">
 						<thead>
 							<tr>
@@ -121,7 +122,7 @@
 							@endforeach
 						</tbody>
 					</table>
-					{!! Form::close() !!}
+					</form>
 				</div>
 			</div>
 		</div>

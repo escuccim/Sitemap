@@ -10,10 +10,10 @@
 				</div>
 				<div class="panel-body">
 					@include('escuccim::errors.list')
-
-					{!! Form::model($image, ['url' => 'sitemapadmin/image/' . $image->page_id, 'class' => 'form-horizontal']) !!}
-						@include('escuccim::sitemap._imageForm', ['submitButtonText' => 'Add Image'])
-					{!! Form::close() !!}
+					<form method="POST" action="/sitemapadmin/image/{{$image->page_id}}" accept-charset="UTF-8" class="form-horizontal">
+						{{csrf_field()}}
+							@include('escuccim::sitemap._imageForm', ['submitButtonText' => 'Add Image'])
+					</form>
 				</div>
 			</div>
 		</div>

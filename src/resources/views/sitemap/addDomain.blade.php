@@ -10,10 +10,10 @@
                 </div>
                 <div class="panel-body">
                     @include('escuccim::errors.list')
-
-                    {!! Form::open(['url' => 'sitemapadmin/subdomain/create', 'class' => 'form-horizontal']) !!}
+                    <form method="POST" action="/sitemapadmin/subdomain/create" accept-charset="UTF-8" class="form-horizontal">
+                        {{csrf_field()}}
                         @include('escuccim::sitemap._subdomainForm', ['submitButtonText' => 'Add Subdomain'])
-                    {!! Form::close() !!}
+                    </form>
                 </div>
             </div>
         </div>

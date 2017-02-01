@@ -19,7 +19,6 @@ Register the class in config/app.php:
 ```
 Escuccim\Sitemap\sitemapServiceProvider::class,
 ```
-
 Run the migrations:
 ``` bash
 php artisan migrate

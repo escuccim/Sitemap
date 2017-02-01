@@ -10,10 +10,9 @@
 				</div>
 				<div class="panel-body">
 					@include('escuccim::errors.list')
-
-					{!! Form::model($page, ['url' => 'sitemapadmin', 'class' => 'form-horizontal']) !!}
+					<form action="/sitemapadmin" class="form-horizontal" method="post">
 						@include('escuccim::sitemap.pageForm', ['submitButtonText' => 'Add Page'])
-					{!! Form::close() !!}
+					</form>
 				</div>
 			</div>
 		</div>

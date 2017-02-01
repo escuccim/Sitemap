@@ -10,10 +10,11 @@
                     </div>
                     <div class="panel-body">
                         @include('escuccim::errors.list')
-
-                        {!! Form::model($sitemap, ['url' => 'sitemapadmin/index/' . $sitemap->id, 'method' => 'patch', 'class' => 'form-horizontal']) !!}
-                        @include('escuccim::sitemapindex._form', ['submitButtonText' => 'Edit Index'])
-                        {!! Form::close() !!}
+                        <form method="POST" action="/sitemapadmin/index/1" accept-charset="UTF-8" class="form-horizontal">
+                            {{csrf_field()}}
+                            <input name="_method" type="hidden" value="PATCH">
+                            @include('escuccim::sitemapindex._form', ['submitButtonText' => 'Edit Index'])
+                        </form>
                     </div>
                 </div>
             </div>
