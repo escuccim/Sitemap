@@ -18,12 +18,6 @@ $ composer require escuccim/Sitemap
 Register the class in config/app.php:
 ```
 Escuccim\Sitemap\sitemapServiceProvider::class,
-Collective\Html\HtmlServiceProvider::class,
-```
-Add the following to the 'aliases' array:
-```php
-'Form' => Collective\Html\FormFacade::class,
-'Html' => Collective\Html\HtmlFacade::class,
 ```
 Run the migrations:
 ``` bash
