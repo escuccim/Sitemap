@@ -4,7 +4,7 @@ All Notable changes to `Sitemap` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## [Unreleased]
+## v0.1-beta.2 [2017-02-01]
 
 ## Added
 - Ability to specify admin middleware in config file
@@ -17,7 +17,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - Changed controller so it doesn't error out if no data in database
 - Other bug fixes
 
-## v0.1.1 - 2017-01-18
+## v0.1-beta.1 - 2017-01-18
 
 ### Added
 - Dynamically generated sitemap index
