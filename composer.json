@@ -4,7 +4,10 @@
     "description": "a sitemap generator and admin for laravel",
     "keywords": [
         "escuccim",
-        "sitemap"
+        "sitemap",
+        "hreflang",
+        "laravel",
+        "multilingual"
     ],
     "minimum-stability": "beta",
     "homepage": "https://github.com/escuccim/sitemap",
